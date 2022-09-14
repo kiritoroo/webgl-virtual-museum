@@ -1,4 +1,4 @@
-# it-project
+# it-project - Virtual Museum - WebGL
 
 ## Author
 - > GitHub [Le Kien Trung](https://github.com/kiritoroo)
