@@ -11,7 +11,7 @@ class Camera {
   private size = this.experience.size;
 
   constructor() {
-    this.camera = new $.PegrspectiveCamera(
+    this.camera = new $.PerspectiveCamera(
       75,
       this.size.aspect,
       0.1,
