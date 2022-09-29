@@ -4,13 +4,17 @@ import vertex from '../shaders/sky/vertex.vs.glsl';
 import fragment from '../shaders/sky/fragment.fs.glsl';
 
 const uniforms = {
-  luminance: { value: 1 },
+  luminance: { value: 1 }, 
   turbidity: { value: 2 },
   rayleigh: { value: 1 },
   mieCoefficient: { value: 0.005 },
   mieDirectionalG: { value: 0.8 },
   sunPosition: { value: new THREE.Vector3() },
+  //uTime: {type: 'f',value: 0 }
 }; 
+
+
+
 
 const geometry: THREE.BoxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const material: THREE.ShaderMaterial = new THREE.ShaderMaterial({

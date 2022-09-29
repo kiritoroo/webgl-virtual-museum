@@ -7,6 +7,7 @@ varying float vSunE;
 
 uniform float luminance;
 uniform float mieDirectionalG;
+//uniform float uTime;
 
 const vec3 cameraPos = vec3( 0.0, 0.0, 0.0 );
 
@@ -93,6 +94,7 @@ void main() {
 
   vec3 retColor = pow( color, vec3( 1.0 / ( 1.2 + ( 1.2 * vSunfade ) ) ) );
 
+  //vec3 myColor = vec3(0.7,sin(uTime),0.6);
     gl_FragColor = vec4( retColor, 1.0 );
 
 }
