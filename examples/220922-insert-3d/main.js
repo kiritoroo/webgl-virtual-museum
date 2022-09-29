@@ -31,7 +31,7 @@ const material = new THREE.MeshStandardMaterial({
 // create light: ambientLight and directionLight
 const ambientLight = new THREE.AmbientLight("lightblue")
 const directionLight = new THREE.DirectionalLight("lightyellow",1)
-co
+
 
 scene.background = new THREE.Color("skyblue")
 camera.position.z =10
