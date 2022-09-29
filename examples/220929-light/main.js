@@ -25,13 +25,6 @@ renderer.setPixelRatio(devicePixelRatio)
 const control = new OrbitControls(camera,renderer.domElement)
 control.enableDamping = true
 
-// create mesh with geometry and material
-// const geometry = new THREE.BoxGeometry(5,5,5)
-// const material = new THREE.MeshStandardMaterial({
-//   wireframe: false 
-// })
-// const mesh = new THREE.Mesh(geometry,material)
-
 // upload models
 let object
 const loader = new GLTFLoader()
