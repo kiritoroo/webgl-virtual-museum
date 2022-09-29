@@ -9,7 +9,7 @@ class Museum {
   constructor() {
     this.geometry = new $.BoxGeometry(5, 5, 5);
     this.material = new $.MeshStandardMaterial({
-      color: new $.Color(0x00ff00)
+      color: new $.Color('tomato')
     })
     this.mesh = new $.Mesh( this.geometry, this.material );
   }

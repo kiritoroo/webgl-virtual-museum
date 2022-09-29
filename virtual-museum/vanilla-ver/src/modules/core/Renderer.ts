@@ -29,7 +29,7 @@ class Renderer {
 
   private configRenderer(): void {
     this.renderer.physicallyCorrectLights = true;
-    this.renderer.outputEncoding = $.sRGBEncoding;
+    //this.renderer.outputEncoding = $.sRGBEncoding;
     this.renderer.toneMapping = $.CineonToneMapping;
     this.renderer.toneMappingExposure = 1.25;
     this.renderer.shadowMap.enabled = true;

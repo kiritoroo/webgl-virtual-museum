@@ -52,7 +52,7 @@ class Experience {
 
   private configScene(): void {
     this.scene.fog = new $.FogExp2(0xececec, 0.05);
-    this.scene.background = new $.Color(0xffffff);
+    this.scene.background = new $.Color(0x272727);
   }
 
   private bindEvent(): void {
