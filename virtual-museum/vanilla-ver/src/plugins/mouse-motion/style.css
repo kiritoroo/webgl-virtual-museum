@@ -1,0 +1,7 @@
+#mouse-circle-main {
+  width: 25px;
+  height: 25px;
+  background: lightgreen;
+  position: absolute;
+  border-radius: 50%;
+}

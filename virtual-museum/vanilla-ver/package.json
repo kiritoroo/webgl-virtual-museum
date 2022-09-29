@@ -1,7 +1,7 @@
 {
   "name": "vanilla-ver",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.14",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
   },
   "dependencies": {
     "@types/three": "^0.144.0",
-    "three": "^0.145.0"
+    "jquery": "^3.6.1",
+    "three": "^0.145.0",
+    "vite-plugin-glsl": "^0.4.0",
+    "vite-tsconfig-paths": "^3.5.1"
   }
 }

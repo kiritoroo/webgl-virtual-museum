@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@util/*": ["src/modules/utils/*"],
+      "@helper/*": ["src/helpers/*"],
+      "@plugin/*": ["src/plugins/*"],
+      "@core/*": ["src/modules/core/*"],
+      "@shader/*": ["src/modules/shaders/*"],
+      "@world/*": ["src/modules/world/*"]
+    }
+  }
+}
