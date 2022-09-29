@@ -34,7 +34,7 @@ const directlight = new THREE.DirectionalLight(0xffffff, 1);
 directlight.position.set(80, 80, 80);
 scene.add(ambientLight);
 scene.add(directlight);
-sky.scale.setScalar(450000);
+sky.scale.setScalar(10);
 scene.add(sky);
 
 type effectType = {
@@ -77,12 +77,17 @@ const material: THREE.Material = new THREE.MeshStandardMaterial({ color: 'white'
 const mesh: THREE.Mesh = new THREE.Mesh( geometry, material )
 scene.add(mesh);
 
+//const clock = new THREE.Clock()
 
 const animate = () => {
 
   requestAnimationFrame(animate);
 
 	controls.update()
+
+  //const time = clock.getElapsedTime()
+  //sky.material.uniforms.uTime.value = time 
+
   renderer.render(scene, camera);
 
   mesh.rotation.x += 0.01;
