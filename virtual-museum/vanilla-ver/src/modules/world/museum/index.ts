@@ -14,7 +14,7 @@ class Museum {
   constructor() {
     this.geometry = new $.BoxGeometry(5, 5, 5);
     this.material = new $.MeshStandardMaterial({
-      color: new $.Color('tomato')
+      color: new $.Color('white')
     })
     this.mesh = new $.Mesh( this.geometry, this.material );
 
@@ -26,8 +26,8 @@ class Museum {
   }
 
   private configDebug(): void {
-    const params = {
-      color: '#FF6347'
+    const PARAMS = {
+      color: '#d6ffa6'
     }
 
     const boxFolder = this.gui.pane.addFolder({
@@ -36,7 +36,7 @@ class Museum {
     });
 
     boxFolder
-      .addInput(params, 'color', {
+      .addInput(PARAMS, 'color', {
         label: 'color',
         picker: 'inline',
         expanded: true

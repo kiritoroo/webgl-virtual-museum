@@ -1,5 +1,6 @@
 import * as $ from 'three'
 import Experience from '@core/Experience';
+import * as TP from 'tweakpane'
 
 class Environment {
 
@@ -34,7 +35,39 @@ class Environment {
   }
 
   private configGui(): void {
-    // config gui debug here, each light is one folder :)
+    // config gui debug here, each light is one folder :) 
+    const PARAMS = {
+      color: '#d6ffa6',
+      intensity: 10
+    }
+
+    const ambientLightFolder = this.gui.pane.addFolder({
+      title: 'Ambient Light',
+      expanded: true
+    });
+
+    ambientLightFolder
+      .addInput(PARAMS, 'color', {
+        label: 'color',
+        picker: 'inline',
+        expanded: true
+      })
+      .on('change', (ev: TP.TpChangeEvent<string>) => {
+        this.ambientLight.color = new $.Color(ev.value)
+      })
+
+    ambientLightFolder
+      .addInput(PARAMS, 'intensity', {
+        label: 'intensity',
+        picker: 'inline',
+        expanded: true,
+        step: 0.01,
+        min: -20,
+        max: 20,
+      })
+      .on('change', (ev : TP.TpChangeEvent<number>) => {
+        this.ambientLight.intensity = ev.value
+      })
   }
 
   private configLight(): void {

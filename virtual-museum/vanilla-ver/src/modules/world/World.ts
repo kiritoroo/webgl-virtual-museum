@@ -28,11 +28,11 @@ class World {
     this.world.add(this.museum.mesh);
     // thêm environment here
     this.world.add(this.environment.ambientLight);
-    this.world.add(this.environment.directionalLight);
-    this.world.add(this.environment.hemisphereLight);
-    this.world.add(this.environment.pointLight);
-    this.world.add(this.environment.rectAreaLight);
-    this.world.add(this.environment.spotLight);
+    // this.world.add(this.environment.directionalLight);
+    // this.world.add(this.environment.hemisphereLight);
+    // this.world.add(this.environment.pointLight);
+    // this.world.add(this.environment.rectAreaLight);
+    // this.world.add(this.environment.spotLight);
     
     this.scene.add(this.world);
   }
