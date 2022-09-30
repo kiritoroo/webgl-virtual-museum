@@ -5,6 +5,7 @@ import Renderer from '@core/Renderer';
 
 import Size from '@util/Size';
 import Time from '@util/Time';
+import GUI from '@util/GUI';
 
 import World from '@world/World';
 
@@ -16,6 +17,7 @@ class Experience {
 
   public readonly size!: Size;
   public readonly time!: Time;
+  public readonly gui!: GUI;
 
   public readonly camera!: Camera; 
   public readonly renderer!: Renderer;
@@ -34,6 +36,7 @@ class Experience {
     //---------- Utils
     this.size = new Size();
     this.time = new Time();
+    this.gui = new GUI();
 
     //---------- Core
     this.camera = new Camera();

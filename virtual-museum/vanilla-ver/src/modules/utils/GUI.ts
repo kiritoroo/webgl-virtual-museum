@@ -2,10 +2,12 @@ import { Pane } from 'tweakpane';
 
 class GUI {
 
-  private pane: Pane;
+  public pane: Pane;
 
   constructor() {
     this.pane = new Pane();
+
+    this.init();
   }
 
   private init(): void {
