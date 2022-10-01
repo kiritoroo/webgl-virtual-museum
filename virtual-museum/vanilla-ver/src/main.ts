@@ -1,10 +1,10 @@
 import Stage from "@core/Experience";
-import Plugin from "@plugin/index";
+import Addon from "@addon/index";
 
-import './style/style.css';
+import './styles/style.css';
 
 const container: HTMLCanvasElement = document.createElement('canvas');
 document.body.appendChild(container);
 
 new Stage(container);
-new Plugin();
+new Addon();

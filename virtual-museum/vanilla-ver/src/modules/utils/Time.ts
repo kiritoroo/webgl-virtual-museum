@@ -1,4 +1,4 @@
-import { emitEvent } from "@/helpers/event";
+import { emitEvent } from '@plugin/event';
 
 class Time {
 

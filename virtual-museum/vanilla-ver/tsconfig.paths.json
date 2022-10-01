@@ -3,11 +3,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@helper/*": ["src/helpers/*"],
-      "@type/*": ["src/types/*"],
       "@plugin/*": ["src/plugins/*"],
-      "@shader/*": ["src/shaders/*"],
+      "@addon/*": ["src/addons/*"],
       "@core/*": ["src/modules/core/*"],
+      "@shader/*": ["src/shaders/*"],
+      "@static/*": ["src/static/*"],
+      "@type/*": ["src/types/*"],
       "@util/*": ["src/modules/utils/*"],
       "@world/*": ["src/modules/world/*"]
     }

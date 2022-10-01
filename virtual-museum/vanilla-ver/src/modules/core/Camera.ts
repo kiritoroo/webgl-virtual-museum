@@ -33,7 +33,7 @@ class Camera {
   }
 
   private configCamera(): void {
-    this.camera.position.set( 0, 0, 5 );
+    this.camera.position.set( 0, 5, 10 );
     this.camera.lookAt( new $.Vector3() );
   }
 

@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import '@helper/math';
+import '@plugin/math';
 
 import './style.css';
 

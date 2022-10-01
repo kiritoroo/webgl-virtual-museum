@@ -1,6 +1,6 @@
 import * as $ from 'three';
 
-import { skyPARAMS, skyUniforms } from '@type/type';
+import { TSkyPARAMS, TSkyUniforms } from '@type/type';
 import Experience from '@core/Experience';
 
 import vertex from '@shader/sky/vertex.vs.glsl';
@@ -9,13 +9,13 @@ import fragment from '@shader/sky/fragment.fs.glsl';
 
 class Sky extends $.Mesh< $.BoxGeometry, $.ShaderMaterial > {
 
-  private skyPARAMS: skyPARAMS;
+  private skyPARAMS: TSkyPARAMS;
 
   private experience: Experience = new Experience();
   private gui = this.experience.gui;
 
   constructor() {
-    const uniforms: skyUniforms = {
+    const uniforms: TSkyUniforms = {
       turbidity: { value: 2 },
       rayleigh: { value: 1 },
       mieCoefficient: { value: 0.005 },
@@ -75,7 +75,7 @@ class Sky extends $.Mesh< $.BoxGeometry, $.ShaderMaterial > {
   }
 
   private onGuiChange(): void {
-    const uniforms: skyUniforms = this.material.uniforms;
+    const uniforms: TSkyUniforms = this.material.uniforms;
     uniforms['turbidity']!.value = this.skyPARAMS.turbidity;
     uniforms['rayleigh']!.value = this.skyPARAMS.rayleigh;
     uniforms['mieCoefficient']!.value = this.skyPARAMS.mieCoefficient;

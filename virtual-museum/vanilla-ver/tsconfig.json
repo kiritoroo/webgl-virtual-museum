@@ -17,9 +17,10 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "declaration": true,
-    "declarationDir": "./types"
+    "declarationMap": true,
+    "declarationDir": "./types/*",
   },
-  "include": [ "src", "*.d.ts" ],
+  "include": [ "src", "**/*.d.ts" ],
   "exclude": ["node_modules"],
   "extends": "./tsconfig.paths.json",
   "references": [{ "path": "./tsconfig.node.json" }]

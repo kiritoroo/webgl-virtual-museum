@@ -1,7 +1,7 @@
 #mouse-circle-main {
   width: 25px;
   height: 25px;
-  background: lightgreen;
+  background: white;
   position: absolute;
   border-radius: 50%;
   user-select: none;

@@ -1,4 +1,4 @@
-import { emitEvent } from '@helper/event';
+import { emitEvent } from '@plugin/event';
 
 class Size {
   private _width: number;

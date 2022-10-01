@@ -8,7 +8,10 @@ class Museum {
   private material: $.MeshStandardMaterial;
   public mesh: $.Mesh< $.BoxGeometry, $.MeshStandardMaterial >;
 
+  public museum: $.Group; //demo
+
   private experience: Experience = new Experience();
+  private resources = this.experience.resources;
   private gui = this.experience.gui;
 
   constructor() {
@@ -18,6 +21,9 @@ class Museum {
       roughness: 1,
     })
     this.mesh = new $.Mesh( this.geometry, this.material );
+
+    this.museum = new $.Group(); //demo
+    this.museum = this.resources.items['m_vrGallery'].scene as $.Group; //demo
 
     this.init();
   }

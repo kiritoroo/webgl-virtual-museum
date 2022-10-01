@@ -40,9 +40,10 @@ class World {
     // this.world.add(this.environment.spotLight);
 
     this.world.add(this.sky);
-    this.world.add(this.floor.mesh);
+    // this.world.add(this.floor.mesh);
     
-    this.world.add(this.museum.mesh);
+    // this.world.add(this.museum.mesh);
+    this.world.add(this.museum.museum);
 
     this.scene.add(this.world);
   }

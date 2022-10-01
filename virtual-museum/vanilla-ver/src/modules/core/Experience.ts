@@ -9,6 +9,9 @@ import GUI from '@util/GUI';
 
 import World from '@world/World';
 
+import assets from '@util/assets';
+import Resources from '@util/Resources';
+
 class Experience {
 
   private static instance: Experience | undefined = undefined;
@@ -21,6 +24,8 @@ class Experience {
 
   public readonly camera!: Camera; 
   public readonly renderer!: Renderer;
+
+  public readonly resources!: Resources;
 
   public world!: World;
 
@@ -42,19 +47,25 @@ class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     
-    //---------- World
-    this.world = new World();
+    //---------- Resources
+    this.resources = new Resources(assets)
 
     this.init();
   }
 
   private init(): void {
-    this.configScene();
-    this.bindEvent();
+    this.resources
+      .on('e_res_ready', () => {
+        //---------- World
+        this.world = new World();
+
+        this.configScene();
+        this.bindEvent();
+      })
   }
 
   private configScene(): void {
-    this.scene.fog = new $.FogExp2(0xececec, 0.05);
+    this.scene.fog = new $.FogExp2(0xececec, 0.005);
     // this.scene.background = new $.Color(0x272727);
   }
 
