@@ -12,9 +12,10 @@ class Museum {
   private gui = this.experience.gui;
 
   constructor() {
-    this.geometry = new $.BoxGeometry(5, 5, 5);
+    this.geometry = new $.BoxGeometry(1, 1, 1);
     this.material = new $.MeshStandardMaterial({
-      color: new $.Color('white')
+      color: new $.Color(0xd6ffa6),
+      roughness: 1,
     })
     this.mesh = new $.Mesh( this.geometry, this.material );
 
@@ -22,7 +23,14 @@ class Museum {
   }
 
   private init(): void {
+    this.mesh.castShadow = true;
+
     this.configDebug();
+  }
+
+  public update(): void {
+    this.mesh.rotation.x += 0.01;
+    this.mesh.rotation.y += 0.01;
   }
 
   private configDebug(): void {
@@ -30,9 +38,9 @@ class Museum {
       color: '#d6ffa6'
     }
 
-    const boxFolder = this.gui.pane.addFolder({
+    const boxFolder = this.gui.addFolder({
       title: 'Box',
-      expanded: true
+      expanded: false
     });
 
     boxFolder
@@ -44,11 +52,6 @@ class Museum {
       .on('change', (ev: TP.TpChangeEvent<string>) => {
         this.mesh.material.color = new $.Color(ev.value);
       })
-  }
-
-  public update(): void {
-    this.mesh.rotation.x += 0.01;
-    this.mesh.rotation.y += 0.01;
   }
 }
 

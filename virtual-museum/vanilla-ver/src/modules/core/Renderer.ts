@@ -8,6 +8,7 @@ class Renderer {
   private experience: Experience = new Experience();
   private canvas = this.experience.canvas;
   private size = this.experience.size;
+  private gui = this.experience.gui;
 
   private scene = this.experience.scene;
   private camera = this.experience.camera;
@@ -25,9 +26,11 @@ class Renderer {
   //---------- Config ----------
   private init(): void {
     this.configRenderer();
+    this.configDebug();
   }
 
   private configRenderer(): void {
+    // real shadows
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = $.PCFShadowMap;
     this.renderer.physicallyCorrectLights = true;
@@ -49,6 +52,55 @@ class Renderer {
   // ---------- Update ----------
   public update(): void {
     this.renderer.render(this.scene, this.camera.camera);
+  }
+
+  private configDebug(): void {
+    const PARAMS = {
+      outputEncoding: $.sRGBEncoding,
+      shadowMap: $.PCFShadowMap,
+      toneMapping: $.ACESFilmicToneMapping
+    }
+
+    const renderFolder = this.gui.addFolder({
+      title: 'Renderer',
+      expanded: false
+    })
+
+    renderFolder.addInput(PARAMS, 'outputEncoding', {
+      options: {
+        sRGB: $.sRGBEncoding,
+        Linear: $.LinearEncoding,
+        BasicDepth: $.BasicDepthPacking,
+        RGBADepth: $.RGBADepthPacking
+      }
+    }).on("change", (ev) => {
+      this.renderer.outputEncoding = ev.value;
+    })
+
+    renderFolder.addInput(PARAMS, 'shadowMap', {
+      options: {
+        Basic: $.BasicShadowMap,
+        VSM: $.VSMShadowMap,
+        PCF: $.PCFShadowMap,
+        PCFSoft: $.PCFSoftShadowMap,
+        WebGL: $.WebGLShadowMap,
+      }
+    }).on("change", (ev) => {
+      this.renderer.shadowMap.type = ev.value;
+    })
+    
+    renderFolder.addInput(PARAMS, 'toneMapping', {
+      options: {
+        None: $.NoToneMapping,
+        Linear: $.LinearToneMapping,
+        Reinhard: $.ReinhardToneMapping,
+        Cineon: $.CineonToneMapping,
+        ACESFilm: $.ACESFilmicToneMapping,
+        Custom: $.CustomToneMapping
+      }
+    }).on("change", (ev) => {
+      this.renderer.toneMapping = ev.value;
+    })
   }
 }
 

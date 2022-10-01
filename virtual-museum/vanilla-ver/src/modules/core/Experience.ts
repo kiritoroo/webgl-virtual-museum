@@ -55,7 +55,7 @@ class Experience {
 
   private configScene(): void {
     this.scene.fog = new $.FogExp2(0xececec, 0.05);
-    this.scene.background = new $.Color(0x272727);
+    // this.scene.background = new $.Color(0x272727);
   }
 
   private bindEvent(): void {
@@ -70,9 +70,13 @@ class Experience {
   }
 
   private update(): void {
+    this.gui.fpsGraph.begin();
+
     this.camera.update();
     this.world.update();
     this.renderer.update();
+
+    this.gui.fpsGraph.end();
   }
 }
 

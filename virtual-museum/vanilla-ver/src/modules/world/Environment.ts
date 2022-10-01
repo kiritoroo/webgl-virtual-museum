@@ -6,10 +6,10 @@ class Environment {
 
   public ambientLight: $.AmbientLight;
   public directionalLight: $.DirectionalLight;
-  public spotLight: $.SpotLight;
-  public pointLight:$.PointLight;
-  public hemisphereLight:$.HemisphereLight;
-  public rectAreaLight :$.RectAreaLight;
+  // public spotLight: $.SpotLight;
+  // public pointLight:$.PointLight;
+  // public hemisphereLight:$.HemisphereLight;
+  // public rectAreaLight :$.RectAreaLight;
 
   private experience: Experience = new Experience(); 
   private gui = this.experience.gui;
@@ -17,12 +17,12 @@ class Environment {
   constructor() {
     // khởi tạo here
 
-    this.ambientLight = new $.AmbientLight('white', 0.6);
-    this.directionalLight = new $.DirectionalLight('lightblue',2);
-    this.spotLight = new $.SpotLight('red',20,10);
-    this.pointLight = new $.PointLight('lightyellow',12);
-    this.hemisphereLight = new $.HemisphereLight('blue', 'grey',10);
-    this.rectAreaLight = new $.RectAreaLight('green',15,2.5,3);
+    this.ambientLight = new $.AmbientLight(0xffffff, 0.5);
+    this.directionalLight = new $.DirectionalLight(0xffffff, 1);
+    // this.spotLight = new $.SpotLight('red',20,10);
+    // this.pointLight = new $.PointLight('lightyellow',12);
+    // this.hemisphereLight = new $.HemisphereLight('blue', 'grey',10);
+    // this.rectAreaLight = new $.RectAreaLight('green',15,2.5,3);
 
     this.init()
 
@@ -31,19 +31,40 @@ class Environment {
   //---------Config----------
   private init() {
     this.configLight();
-    this.configGui();
+    this.configDebug();
   }
 
-  private configGui(): void {
+  private configLight(): void {
+    this.ambientLight.position.set(0,0,6);
+
+    // config directional light
+    this.directionalLight.castShadow = true;
+    this.directionalLight.shadow.mapSize.set( 2048, 2048 );
+    this.directionalLight.shadow.camera.far = 15;
+    this.directionalLight.shadow.normalBias = 0.05;
+    this.directionalLight.position.set(0.25, 2, 1.5);
+
+    // this.spotLight.position.set(-1,-6,-7);
+    // this.pointLight.position.set(0,0,-6);
+    // this.rectAreaLight.position.set(0,0,0);
+    // this.hemisphereLight.position.set(0,9,0);
+  }
+
+  public update(): void {
+    // cập nhật here
+    
+  }
+
+  private configDebug(): void {
     // config gui debug here, each light is one folder :) 
     const PARAMS = {
       color: '#d6ffa6',
-      intensity: 10
+      intensity: 0.5
     }
 
-    const ambientLightFolder = this.gui.pane.addFolder({
+    const ambientLightFolder = this.gui.addFolder({
       title: 'Ambient Light',
-      expanded: true
+      expanded: false
     });
 
     ambientLightFolder
@@ -62,26 +83,12 @@ class Environment {
         picker: 'inline',
         expanded: true,
         step: 0.01,
-        min: -20,
-        max: 20,
+        min: -1,
+        max: 1,
       })
       .on('change', (ev : TP.TpChangeEvent<number>) => {
         this.ambientLight.intensity = ev.value
       })
-  }
-
-  private configLight(): void {
-    this.ambientLight.position.set(0,0,6);
-    this.directionalLight.position.set(1,6,7);
-    this.spotLight.position.set(-1,-6,-7);
-    this.pointLight.position.set(0,0,-6);
-    this.rectAreaLight.position.set(0,0,0);
-    this.hemisphereLight.position.set(0,9,0);
-  }
-
-  public update(): void {
-    // cập nhật here
-    
   }
 }
 
