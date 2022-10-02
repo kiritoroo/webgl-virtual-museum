@@ -31,8 +31,7 @@ class Floor {
   }
 
   public update(): void {
-    this.mesh.rotation.x += 0.01;
-    this.mesh.rotation.y += 0.01;
+
   }
 
   private configDebug(): void {

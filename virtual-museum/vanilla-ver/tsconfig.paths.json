@@ -5,11 +5,12 @@
       "@/*": ["src/*"],
       "@plugin/*": ["src/plugins/*"],
       "@addon/*": ["src/addons/*"],
-      "@core/*": ["src/modules/core/*"],
       "@shader/*": ["src/shaders/*"],
       "@static/*": ["src/static/*"],
       "@type/*": ["src/types/*"],
+      "@core/*": ["src/modules/core/*"],
       "@util/*": ["src/modules/utils/*"],
+      "@test/*": ["src/modules/tests/*"],
       "@world/*": ["src/modules/world/*"]
     }
   }

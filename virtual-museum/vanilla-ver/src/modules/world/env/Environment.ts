@@ -35,7 +35,7 @@ class Environment {
   }
 
   private configLight(): void {
-    this.ambientLight.position.set(0,0,6);
+    this.ambientLight.position.set(0, 0, 0);
 
     // config directional light
     this.directionalLight.castShadow = true;

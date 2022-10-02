@@ -11,6 +11,7 @@ import World from '@world/World';
 
 import assets from '@util/assets';
 import Resources from '@util/Resources';
+import Test from '@test/index';
 
 class Experience {
 
@@ -28,6 +29,8 @@ class Experience {
   public readonly resources!: Resources;
 
   public world!: World;
+
+  private test!: Test;
 
   constructor(readonly canvas?: HTMLCanvasElement) {
     if (Experience.instance) {
@@ -58,6 +61,7 @@ class Experience {
       .on('e_res_ready', () => {
         //---------- World
         this.world = new World();
+        // this.test = new Test();
 
         this.configScene();
         this.bindEvent();
@@ -66,7 +70,7 @@ class Experience {
 
   private configScene(): void {
     this.scene.fog = new $.FogExp2(0xececec, 0.005);
-    // this.scene.background = new $.Color(0x272727);
+    this.scene.background = new $.Color(0x272727);
   }
 
   private bindEvent(): void {
@@ -76,7 +80,7 @@ class Experience {
 
   private resize(): void {
     this.camera.resize();
-    this.world.resize();
+    if ( this.world )  this.world.resize();
     this.renderer.resize();
   }
 
@@ -84,7 +88,10 @@ class Experience {
     this.gui.fpsGraph.begin();
 
     this.camera.update();
-    this.world.update();
+    
+    if ( this.world ) this.world.update();
+    if ( this.test ) this.test.update();
+
     this.renderer.update();
 
     this.gui.fpsGraph.end();

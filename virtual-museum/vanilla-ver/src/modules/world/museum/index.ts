@@ -4,60 +4,32 @@ import * as TP from 'tweakpane';
 
 class Museum {
 
-  private geometry: $.BoxGeometry;
-  private material: $.MeshStandardMaterial;
-  public mesh: $.Mesh< $.BoxGeometry, $.MeshStandardMaterial >;
-
-  public museum: $.Group; //demo
+  public model: $.Group; //demo
 
   private experience: Experience = new Experience();
   private resources = this.experience.resources;
   private gui = this.experience.gui;
 
   constructor() {
-    this.geometry = new $.BoxGeometry(1, 1, 1);
-    this.material = new $.MeshStandardMaterial({
-      color: new $.Color(0xd6ffa6),
-      roughness: 1,
-    })
-    this.mesh = new $.Mesh( this.geometry, this.material );
-
-    this.museum = new $.Group(); //demo
-    this.museum = this.resources.items['m_vrGallery'].scene as $.Group; //demo
+    this.model = new $.Group(); //demo
+    this.model = this.resources.items['m_vrGallery'].scene as $.Group; //demo
 
     this.init();
   }
 
   private init(): void {
-    this.mesh.castShadow = true;
+    this.model.castShadow = true;
+    this.model.receiveShadow = true;
 
     this.configDebug();
   }
 
   public update(): void {
-    this.mesh.rotation.x += 0.01;
-    this.mesh.rotation.y += 0.01;
+
   }
 
   private configDebug(): void {
-    const PARAMS = {
-      color: '#d6ffa6'
-    }
 
-    const boxFolder = this.gui.addFolder({
-      title: 'Box',
-      expanded: false
-    });
-
-    boxFolder
-      .addInput(PARAMS, 'color', {
-        label: 'color',
-        picker: 'inline',
-        expanded: true
-      })
-      .on('change', (ev: TP.TpChangeEvent<string>) => {
-        this.mesh.material.color = new $.Color(ev.value);
-      })
   }
 }
 

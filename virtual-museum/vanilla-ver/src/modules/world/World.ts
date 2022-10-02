@@ -46,8 +46,8 @@ class World {
     this.world.add(this.lightShaft.mesh);
     // this.world.add(this.floor.mesh);
     
-    // this.world.add(this.museum.mesh);
-    this.world.add(this.museum.museum);
+    this.world.add(this.museum.model);
+    // this.world.add(this.museum.museum);
 
     this.scene.add(this.world);
   }
@@ -58,7 +58,6 @@ class World {
 
   public update(): void {
     this.museum.update();
-    // cập nhật environment here
     this.environment.update();
     this.lightShaft.update();
   }
