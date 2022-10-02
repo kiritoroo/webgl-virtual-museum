@@ -1,8 +1,9 @@
 import * as $ from 'three';
 import Experience from '@core/Experience';
 
-import Sky from './Sky';
-import Environment from '@world/Environment';
+import Sky from '@world/env/Sky';
+import LightShaft from '@world/env/LightShaft';
+import Environment from '@world/env/Environment';
 import Floor from '@world/floor/Floor';
 import Museum from '@world/museum';
 
@@ -14,6 +15,7 @@ class World {
   private scene = this.experience.scene;
 
   private sky: Sky;
+  private lightShaft: LightShaft;
   private environment: Environment;
   private floor: Floor;
   private museum: Museum; 
@@ -22,6 +24,7 @@ class World {
     this.world = new $.Group();
 
     this.sky = new Sky();
+    this.lightShaft = new LightShaft();
     this.environment = new Environment();
     this.floor = new Floor();
 
@@ -40,6 +43,7 @@ class World {
     // this.world.add(this.environment.spotLight);
 
     this.world.add(this.sky);
+    this.world.add(this.lightShaft.mesh);
     // this.world.add(this.floor.mesh);
     
     // this.world.add(this.museum.mesh);
@@ -56,6 +60,7 @@ class World {
     this.museum.update();
     // cập nhật environment here
     this.environment.update();
+    this.lightShaft.update();
   }
 }
 

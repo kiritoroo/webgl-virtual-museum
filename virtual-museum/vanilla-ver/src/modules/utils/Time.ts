@@ -18,10 +18,14 @@ class Time {
 
   update() {
     const currentTime: number = Date.now();
-    this.delta = this.current - this.current;
+    this.delta = currentTime - this.current;
     this.current = currentTime;
     this.elapsed = this.current - this.start;
 
+    if (this.delta > 60) {
+      this.delta = 60;
+    }
+    
     emitEvent('eUpdate');
 
     window.requestAnimationFrame(() => this.update());
