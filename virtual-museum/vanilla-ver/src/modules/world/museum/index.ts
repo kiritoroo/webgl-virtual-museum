@@ -12,7 +12,7 @@ class Museum {
 
   constructor() {
     this.model = new $.Group(); //demo
-    this.model = this.resources.items['m_vrGallery'].scene as $.Group; //demo
+    this.model = this.resources.items['m_museum'].scene as $.Group; //demo
 
     this.init();
   }
@@ -21,7 +21,20 @@ class Museum {
     this.model.castShadow = true;
     this.model.receiveShadow = true;
 
+    this.configModel();
     this.configDebug();
+  }
+
+  private configModel(): void {
+    this.model.traverse((node) => {
+      if (node.isObject3D) {
+        node.castShadow = true;
+        node.receiveShadow = true;
+      }
+    })
+    this.model.scale.set( 1, 1, 1 );
+    this.model.receiveShadow = true;
+    this.model.castShadow = true;
   }
 
   public update(): void {

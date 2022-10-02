@@ -9,6 +9,7 @@
       "@static/*": ["src/static/*"],
       "@type/*": ["src/types/*"],
       "@core/*": ["src/modules/core/*"],
+      "@anim/*": ["src/modules/anims/*"],
       "@util/*": ["src/modules/utils/*"],
       "@test/*": ["src/modules/tests/*"],
       "@world/*": ["src/modules/world/*"]

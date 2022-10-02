@@ -1,6 +1,7 @@
 interface CustomEventMap {
   "eResize": CustomEvent;
   "eUpdate": CustomEvent;
+  "eDiscover": CustomEvent;
 }
 
 declare global {

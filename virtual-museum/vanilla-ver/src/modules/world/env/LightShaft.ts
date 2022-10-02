@@ -12,7 +12,7 @@ class LightShaft {
   private time = this.experience.time;
 
   constructor() {
-    this.numberOfShafts = 50;
+    this.numberOfShafts = 25;
 
     this.init();
   }
@@ -26,7 +26,7 @@ class LightShaft {
     this.cusUniforms = {
       uTime: { value: 0 }
     }
-    const geometry: $.PlaneGeometry = new $.PlaneGeometry(0.5, 2);
+    const geometry: $.PlaneGeometry = new $.PlaneGeometry(0.5, 3);
     const texture = this.resources.items['t_lightShaft'];
     const material: $.MeshBasicMaterial = new $.MeshBasicMaterial({
       transparent: true,
@@ -68,7 +68,7 @@ class LightShaft {
         "#include <alphamap_fragment>",
         
         `#include <alphamap_fragment>
-        diffuseColor.a *= (1.25 * sin((uTime + vRandom) * .5) - 0.25 - (vRandom * 0.005));`
+        diffuseColor.a *= (1.55 * sin((uTime + vRandom) * .5) - 0.25 - (vRandom * 0.005));`
       )
     }
 
@@ -86,7 +86,7 @@ class LightShaft {
   private configInstand(): void {
     const spacing = 0.4 / 2;
     const positions = Array.from({ length: this.numberOfShafts }, (value, index) => ({
-      position: [(index * spacing) % 5, Math.random() * 2, Math.random() * 5],
+      position: [(index * spacing) % 5, Math.random() * 2, Math.random() * 1],
       scale: [1.5 + Math.random(), 2 + Math.random() * 1.25, 1]
     }))
 
@@ -111,7 +111,7 @@ class LightShaft {
     this.mesh.instanceMatrix.needsUpdate = true;
 
     this.mesh.rotation.set(-Math.PI / 8, 0, Math.PI / 8);
-    this.mesh.position.set(-2, 2.5, -2);
+    this.mesh.position.set(-2, 2, 0.2);
   }
 
   public update(): void {

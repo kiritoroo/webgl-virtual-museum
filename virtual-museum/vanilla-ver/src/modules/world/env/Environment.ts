@@ -5,24 +5,18 @@ import * as TP from 'tweakpane'
 class Environment {
 
   public ambientLight: $.AmbientLight;
-  public directionalLight: $.DirectionalLight;
-  // public spotLight: $.SpotLight;
-  // public pointLight:$.PointLight;
-  // public hemisphereLight:$.HemisphereLight;
-  // public rectAreaLight :$.RectAreaLight;
+  public hemiLight: $.HemisphereLight;
+  public dirlLight: $.DirectionalLight;
 
-  private experience: Experience = new Experience(); 
+  private experience: Experience = new Experience();
+  private scene = this.experience.scene;
   private gui = this.experience.gui;
 
   constructor() {
-    // khởi tạo here
 
-    this.ambientLight = new $.AmbientLight(0xffffff, 0.5);
-    this.directionalLight = new $.DirectionalLight(0xffffff, 1);
-    // this.spotLight = new $.SpotLight('red',20,10);
-    // this.pointLight = new $.PointLight('lightyellow',12);
-    // this.hemisphereLight = new $.HemisphereLight('blue', 'grey',10);
-    // this.rectAreaLight = new $.RectAreaLight('green',15,2.5,3);
+    this.ambientLight = new $.AmbientLight( 0xffffff, 0.5 );
+    this.hemiLight = new $.HemisphereLight( 0xffffff, 0.5 );
+    this.dirlLight = new $.DirectionalLight( 0xffffff, 1 );
 
     this.init()
 
@@ -35,19 +29,22 @@ class Environment {
   }
 
   private configLight(): void {
-    this.ambientLight.position.set(0, 0, 0);
+    this.ambientLight.position.set(0, 2, 5);
+		this.hemiLight.position.set( 0, 1, 0 );
 
-    // config directional light
-    this.directionalLight.castShadow = true;
-    this.directionalLight.shadow.mapSize.set( 2048, 2048 );
-    this.directionalLight.shadow.camera.far = 15;
-    this.directionalLight.shadow.normalBias = 0.05;
-    this.directionalLight.position.set(0.25, 2, 1.5);
+    const dirlLight_helper = new $.DirectionalLightHelper(  this.dirlLight, 5 );
+    this.scene.add(dirlLight_helper);
 
-    // this.spotLight.position.set(-1,-6,-7);
-    // this.pointLight.position.set(0,0,-6);
-    // this.rectAreaLight.position.set(0,0,0);
-    // this.hemisphereLight.position.set(0,9,0);
+    this.dirlLight.position.set(1, 10, 2);
+    this.dirlLight.castShadow = true;
+    this.dirlLight.shadow.camera.top = 10;
+    this.dirlLight.shadow.camera.bottom = -10;
+    this.dirlLight.shadow.camera.left = -10;
+    this.dirlLight.shadow.camera.right = 10;
+    this.dirlLight.shadow.camera.near = 0.1;
+    this.dirlLight.shadow.camera.far = 10
+    this.dirlLight.shadow.normalBias = 0.05;
+    this.dirlLight.shadow.mapSize.set( 2048, 2048 );
   }
 
   public update(): void {

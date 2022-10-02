@@ -1,6 +1,7 @@
 interface CustomEventMap {
   "eResize": CustomEvent;
   "eUpdate": CustomEvent;
+  "eDiscover": CustomEvent;
 }
 
 const emitEvent = <K extends keyof CustomEventMap>(eventType: K): void => {

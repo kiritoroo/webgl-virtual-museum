@@ -14,7 +14,7 @@ class World {
   private experience: Experience = new Experience();
   private scene = this.experience.scene;
 
-  private sky: Sky;
+  // private sky: Sky;
   private lightShaft: LightShaft;
   private environment: Environment;
   private floor: Floor;
@@ -23,7 +23,7 @@ class World {
   constructor() {
     this.world = new $.Group();
 
-    this.sky = new Sky();
+    // this.sky = new Sky();
     this.lightShaft = new LightShaft();
     this.environment = new Environment();
     this.floor = new Floor();
@@ -36,13 +36,13 @@ class World {
   private init(): void {
     // thêm environment here
     this.world.add(this.environment.ambientLight);
-    this.world.add(this.environment.directionalLight);
+    this.world.add(this.environment.dirlLight);
     // this.world.add(this.environment.hemisphereLight);
     // this.world.add(this.environment.pointLight);
     // this.world.add(this.environment.rectAreaLight);
     // this.world.add(this.environment.spotLight);
 
-    this.world.add(this.sky);
+    // this.world.add(this.sky);
     this.world.add(this.lightShaft.mesh);
     // this.world.add(this.floor.mesh);
     
