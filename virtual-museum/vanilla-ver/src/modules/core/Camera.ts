@@ -52,7 +52,7 @@ class Camera {
 
   // ---------- Update ----------
   public update(): void {
-    this.controls.update();
+    // this.controls.update();
   }
 }
 

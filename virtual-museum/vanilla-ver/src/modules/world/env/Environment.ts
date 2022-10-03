@@ -33,7 +33,7 @@ class Environment {
 		this.hemiLight.position.set( 0, 1, 0 );
 
     const dirlLight_helper = new $.DirectionalLightHelper(  this.dirlLight, 5 );
-    this.scene.add(dirlLight_helper);
+    // this.scene.add(dirlLight_helper);
 
     this.dirlLight.position.set(1, 10, 2);
     this.dirlLight.castShadow = true;

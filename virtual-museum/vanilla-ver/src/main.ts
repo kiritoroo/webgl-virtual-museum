@@ -6,5 +6,6 @@ import './styles/style.css';
 const container: HTMLCanvasElement = document.createElement('canvas');
 document.body.appendChild(container);
 
-new Stage(container);
-new Addon();
+new Stage(container).resources.on('e_res_ready', () => {
+  new Addon();
+});

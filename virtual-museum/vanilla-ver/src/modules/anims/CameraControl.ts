@@ -12,13 +12,13 @@ class CameraControl {
   constructor() {
     this.motionIntroPARAMS = {
       firstMotion: {
-        position: new Vector3(0, 12, 5),
+        position: new Vector3(0, 15, 5),
         rotation: new Vector3(0, 0, 0),
         duration: 0
       },
       secondMotion: {
-        position: new Vector3(0, 2, 3),
-        rotation: new Vector3(0, 0, 0),
+        position: new Vector3(0, 1, 3),
+        rotation: new Vector3(Math.PI / 12, 0, 0),
         duration: 3
       }
     }
@@ -33,13 +33,25 @@ class CameraControl {
   }
   
   public motionIntro(): void {
-    gsap.to(this.camera.camera.position, {
+    let timeline = gsap.timeline();
+    timeline
+    .addLabel("timeline1")
+    .to(this.camera.camera.position, {
       x: () => this.motionIntroPARAMS['secondMotion'].position.x,
       y: () => this.motionIntroPARAMS['secondMotion'].position.y,
       z: () => this.motionIntroPARAMS['secondMotion'].position.z,
       ease: 'slowmo',
       duration: this.motionIntroPARAMS['secondMotion'].duration as number,
-    }).play();
+    })
+    .to(this.camera.camera.rotation, {
+      x: () => this.motionIntroPARAMS['secondMotion'].rotation.x,
+      y: () => this.motionIntroPARAMS['secondMotion'].rotation.y,
+      z: () => this.motionIntroPARAMS['secondMotion'].rotation.z,
+      ease: 'slowmo',
+      duration: this.motionIntroPARAMS['secondMotion'].duration as number
+    }, "<")
+
+    timeline.play();
   }
 
   public update(): void {
