@@ -1,18 +1,22 @@
 import Experience from '@core/Experience';
 import * as $ from 'three';
+import gsap from 'gsap';
 
 class LightShaft {
 
   private numberOfShafts: number;
   private cusUniforms: any;
   public mesh!: $.InstancedMesh< $.PlaneGeometry, $.MeshBasicMaterial >;
-
+  private isTrans: boolean;
+  
   private experience: Experience = new Experience();
   private resources = this.experience.resources;
+  private gui = this.experience.gui;
   private time = this.experience.time;
 
   constructor() {
     this.numberOfShafts = 25;
+    this.isTrans = false;
 
     this.init();
   }
@@ -20,6 +24,7 @@ class LightShaft {
   private init(): void {
     this.createInstand();
     this.configInstand();
+    this.configDebug();
   }
 
   private createInstand(): void {
@@ -68,7 +73,8 @@ class LightShaft {
         "#include <alphamap_fragment>",
         
         `#include <alphamap_fragment>
-        diffuseColor.a *= (1.55 * sin((uTime + vRandom) * .5) - 0.25 - (vRandom * 0.005));`
+        diffuseColor.a *= (1.55 * sin((uTime + vRandom) * .5) - 0.25 - (vRandom * 0.005));
+        `
       )
     }
 
@@ -115,7 +121,38 @@ class LightShaft {
   }
 
   public update(): void {
-    this.cusUniforms.uTime.value = this.time.delta * 0.005;
+    // this.cusUniforms.uTime.value = this.time.delta;
+
+    if (!this.isTrans) {
+      this.isTrans = true;
+      gsap.to(this.cusUniforms.uTime, {
+        duration: 2,
+        value: this.time.delta % 3,
+        ease: 'slowmo',
+        onComplete: () => {
+          this.isTrans = false;
+        }
+      }).play()
+    }
+  }
+
+  private configDebug(): void {
+    const PARAMS = {
+      uTime: 0
+    }
+    
+    const lightShaftFolder = this.gui.addFolder({
+      title: 'Light Shaft',
+      expanded: false
+    })
+
+    lightShaftFolder.addInput(PARAMS, 'uTime', {
+      min: 0.0,
+      max: 2,
+      step: 0.001
+    }).on("change", (ev) => {
+      this.cusUniforms.uTime.value = ev.value;
+    })
   }
 }
 

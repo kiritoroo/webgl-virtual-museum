@@ -110,8 +110,8 @@ class Experience {
   private configScene(): void {
     this.scene.fog = new $.FogExp2(0xececec, 0.005);
     // this.scene.background = new $.Color(0x272727);
-    this.scene.background = this.resources.items['hdr_skieFire'];
-    this.scene.environment = this.resources.items['hdr_skieFire'];
+    this.scene.background = this.resources.items['hdr_modernBuilding'];
+    this.scene.environment = this.resources.items['hdr_modernBuilding'];
     this.scene.add( this.sky );
   }
 

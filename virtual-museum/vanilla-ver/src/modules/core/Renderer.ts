@@ -40,7 +40,7 @@ class Renderer {
     this.renderer.toneMapping = $.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.25;
 
-    this.renderer.setClearColor(new $.Color(0xffffff));
+    // this.renderer.setClearColor(new $.Color(0xffffff));
     this.renderer.setSize(this.size.width, this.size.height);
     this.renderer.setPixelRatio(this.size.pixelRatio);
   }
