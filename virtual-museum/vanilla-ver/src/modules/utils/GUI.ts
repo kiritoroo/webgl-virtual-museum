@@ -1,6 +1,7 @@
 import { BladeApi, Pane } from 'tweakpane';
 import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
 import { BladeController, View } from '@tweakpane/core';
+import Experience from '@core/Experience';
 
 interface FPSGraph extends BladeApi<BladeController<View>> {
   begin(): void
@@ -10,6 +11,8 @@ interface FPSGraph extends BladeApi<BladeController<View>> {
 class GUI extends Pane {
 
   public fpsGraph: FPSGraph;
+
+  private experience: Experience = new Experience();
 
   constructor() {
     super();
@@ -41,6 +44,22 @@ class GUI extends Pane {
       label: 'Time',
       interval: 1000
     })
+
+    this.addButton({
+      title: 'Capture'
+    }).on('click', () => {
+      this.saveCanvas()
+    })
+  }
+
+  private saveCanvas() {
+    const renderer = this.experience.renderer;
+    const canvasElem = renderer.renderer.domElement;
+    const anchor = this.document.createElement('a');
+    const date = new Date(Date.now())
+    anchor.download = 'capture-' + date.getDate().toString().padStart(2, '0') + '' + date.getMonth().toString().padStart(2, '0') + '' + date.getFullYear() + '.png';
+    anchor.href = canvasElem.toDataURL();
+    anchor.click();
   }
 }
 

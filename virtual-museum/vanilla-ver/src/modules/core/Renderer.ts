@@ -15,6 +15,8 @@ class Renderer {
 
   constructor() {
     this.renderer = new $.WebGLRenderer({
+      // screenshot
+      preserveDrawingBuffer: true,
       canvas: this.canvas,
       antialias: true,
       powerPreference: 'high-performance'

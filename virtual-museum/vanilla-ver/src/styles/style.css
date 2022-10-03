@@ -115,6 +115,9 @@ canvas {
   font-size: 20px;
   font-weight: 500;
   height: 110px;
+  min-height: 110px;
+  width: 110px;
+  min-width: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,7 +126,6 @@ canvas {
   padding: 5px;
   position: relative;
   text-align: center;
-  width: 110px;
   border-radius: 50%;
   border: 1px solid #fff;
   visibility: hidden;

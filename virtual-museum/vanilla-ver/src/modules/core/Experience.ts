@@ -40,6 +40,8 @@ class Experience {
 
   private cameraControl!: CameraControl;
 
+  public isDiscover!: boolean;
+
   constructor(readonly canvas?: HTMLCanvasElement) {
     if (Experience.instance) {
       return Experience.instance;
@@ -65,6 +67,8 @@ class Experience {
 
     this.cameraControl = new CameraControl();
 
+    this.isDiscover = false;
+    
     this.init();
   }
 
@@ -78,7 +82,21 @@ class Experience {
         jQuery<HTMLElement>( ".p_index__btn" ).on("click", () => {
           jQuery(".contents.p_index").removeClass( 'inView' );
           jQuery(".contents.p_index,  .contents.p_index *").remove();
-          this.cameraControl.motionIntro();
+          this.cameraControl.motionIntro()
+          this.cameraControl.on('e_motion_done', () => {
+            this.isDiscover = true;
+            // set target for controls
+            let sphericalTarget = new $.Spherical(-1.7943024895, 3.1415926536, 0);
+            let target = new $.Vector3(
+              this.camera.camera.position.x,
+              this.camera.camera.position.y,
+              this.camera.camera.position.z,
+            ).setFromSpherical(sphericalTarget)
+
+            this.camera.controls.target = target;
+            this.camera.controls.enabled = true;
+            this.camera.controls.enableDamping = true;
+          })
           emitEvent('eDiscover');
         })
         // this.scene.remove( this.sky );
@@ -111,7 +129,7 @@ class Experience {
   private update(): void {
     this.gui.fpsGraph.begin();
 
-    this.camera.update();
+    if (this.isDiscover) this.camera.update();
     
     if ( this.world ) this.world.update();
     if ( this.test ) this.test.update();

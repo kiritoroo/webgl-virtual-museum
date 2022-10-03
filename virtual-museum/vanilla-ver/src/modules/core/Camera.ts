@@ -9,6 +9,7 @@ class Camera {
   private experience: Experience = new Experience();
   private canvas = this.experience.canvas;
   private size = this.experience.size;
+  private gui = this.experience.gui;
 
   constructor() {
     this.camera = new $.PerspectiveCamera(
@@ -30,15 +31,17 @@ class Camera {
   private init(): void {
     this.configCamera();
     this.configControl();
+    this.configDebug();
   }
 
   private configCamera(): void {
-    this.camera.position.set( 0, 5, 10 );
-    this.camera.lookAt( new $.Vector3() );
+    // this.camera.position.set( 0, 5, 10 );
+    // this.camera.lookAt( new $.Vector3() );
   }
 
   private configControl(): void {
-    this.controls.enableDamping = true;
+    this.controls.enabled = false;
+    this.controls.enableDamping = false;
     this.controls.enableZoom = true;
     this.controls.enablePan = true;
     this.controls.enableRotate = true;
@@ -52,7 +55,39 @@ class Camera {
 
   // ---------- Update ----------
   public update(): void {
-    // this.controls.update();
+    this.controls.update();
+  }
+
+  private configDebug(): void {
+
+    const PARAMS = {
+      sphericalTarget: { 
+        x: -Math.PI / 1.7,
+        y: Math.PI,
+        z: 0
+      }
+    }
+
+    const cameraFolder = this.gui.addFolder({
+      title: 'Camera',
+      expanded: false
+    })
+
+    cameraFolder.addInput(PARAMS, 'sphericalTarget', {
+      expanded: false
+    }).on("change", (ev) => {
+      let sphTarget = new $.Spherical(
+        ev.value.x,
+        ev.value.y,
+        ev.value.z,
+      );
+      let target = new $.Vector3(
+        this.camera.position.x,
+        this.camera.position.y,
+        this.camera.position.z,
+      ).setFromSpherical(sphTarget)
+      this.controls.target = target;
+    })
   }
 }
 
