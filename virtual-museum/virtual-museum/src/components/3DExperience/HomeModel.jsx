@@ -6,7 +6,7 @@ import * as TWEEN from "@tweenjs/tween.js";
 const Scene = (props) => {
   const group = useRef();
   const mesh = useRef();
-  const { nodes, materials, animations } = useGLTF("home-model/scene.gltf", "home-model/scene.bin");
+  const { nodes, materials, animations } = useGLTF("model/rhetorician_1/scene.gltf", "rhetorician_1/scene.bin");
   const { actions } = useAnimations(animations, group);
   const upAndDown = new TWEEN.Tween({ y: -2.8, rot: 0 })
     .to({ y: -3, rot: 1 }, 3000)
@@ -41,8 +41,6 @@ const Scene = (props) => {
   const moveModel = (e) => {
     mesh.current.rotation.y = -0.5 + e.clientX / window.innerWidth;
   };
-
-  
 
   return (
     <group
@@ -85,7 +83,7 @@ const Scene = (props) => {
   );
 }
 
-useGLTF.preload("home-model/scene.gltf");
+useGLTF.preload("model/rhetorician_1/scene.gltf");
 
 export default function HomeModel({ setLoading }) {
   return (

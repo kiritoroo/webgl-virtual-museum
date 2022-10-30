@@ -4,8 +4,8 @@ import Typewriter from "typewriter-effect";
 import Marquee from "react-fast-marquee";
 
 import Loader from "../components/Loader";
-import HomeModel from "../components/3DExperience/HomeModel";
-import Work from "./Work";
+import HomeModel from "../components/3DExperience/HomeModel2";
+import Show from "../components/Show";
 
 import { ReactComponent as ScrollArrow } from '../assets/ScrollArrow.svg';
 
@@ -100,7 +100,7 @@ const Home = () => {
           <div className={tGridWrapper}>
             <motion.div variants={effectLeft} className={tGridLeft}>
               <div className="md:text-6xl text-3xl font-bold uppercase">
-                Virtual{" "}
+                <span className="wave-effect">Virtual{" "}</span> 
                 <span className="wave-effect md:text-7xl text-6xl text-stroke">MUSEUM</span>{" "}
                 <span className="md:text-6xl text-5xl text-stroke">BEST</span>{" "}
                 Experience
@@ -139,9 +139,6 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
-
-        {/* <Work /> */}
-
         <section data-scroll-section className="relative">
           <div className="container p-12 px-0 flex items-center justify-center md:justify-start text-2xl font-medium tracking-widest leading-tight text-gray-900 uppercase antialiased">
             {"  "}
@@ -182,7 +179,11 @@ const Home = () => {
               </Marquee>
             </div>
           </div>
+          <div className="container p-12 px-0 flex items-center justify-center md:justify-start text-2xl font-medium tracking-widest leading-tight text-gray-900 uppercase antialiased">
+            {"  "}
+          </div>
         </section>
+        <Show />
       </motion.div>
     </>
   );
