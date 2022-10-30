@@ -2,25 +2,152 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebGL - Virtual Museum</title>
+    <title>Museum</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="src/styles/welcome.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <!-- header -->
+    <header class="header">
+      <nav>
+        <h2 class="logo">Virtual <span>Museum</span></h2>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+        <div class="btnSubs">
+          <a href="" class="btn">Subscribe</a>
+        </div>
+      </nav>
 
-    <div class="contents p_index">
-      <div class="contents__body">
-        <div class="p_index__layout">
-          <div class="p_index__content">
-            <div class="p_index__title">
-            </div>
-            <div class="p_index__btn">
-              <span>Discover</span>
-            </div>
+      <div class="content">
+        <h1>The <span>mystic</span> place for you</h1>
+        <h3>Welcome to the Show</h3>
+      </div>
+
+      <div class="btnTry">
+        <a href="museum.html" class="btn">Try it</a>
+      </div>
+    </header>
+
+    <section class="about">
+      <div class="about-main">
+        <img
+          src="public/static/images/about.jpg"
+          alt=""
+          style="filter: brightness(90%)"
+        />
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>
+            The mysterious museum system with a huge inventory of artifacts,
+            documents, and information resources helps visitors better
+            understand the mysterious ancient Egyptian world.
+          </p>
+          <p>
+            The museum campus includes an exhibition center and an antiquities
+            restoration center. There are many rooms with various exhibits about
+            the kings in the history of ancient Egypt.
+          </p>
+          <h4>Visitors can visit in the time frame from 9 a.m to 19 p.m</h4>
+        </div>
+      </div>
+    </section>
+
+    <section class="service">
+      <div class="title">
+        <h2>Our Services</h2>
+      </div>
+
+      <div class="box">
+        <div class="card">
+          <i class="fa-solid fa-bars"></i>
+          <h5>Direct Experience</h5>
+          <div class="pra">
+            <p>
+              Coming to the museum, you can not only visit, see, be provided
+              with information, receive historical and cultural values.
+            </p>
+            <p>
+              You will be bring a sense of nostalgic, hauntingly and mystery of
+              this ancient land. Only 5 dollars
+            </p>
+            <p style="text-align: center">
+              <a class="button" href="#">Read More</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-bars"></i>
+          <h5>Indirect Experience</h5>
+          <div class="pra">
+            <p>
+              If you cannot visit directly, we can still provide you with a
+              website, where you only need to pay us about 2-3 dollars
+            </p>
+            <p>
+              and you can see the layout and treasures of the Museum and
+              Egyptian treasures that we collected.
+            </p>
+            <p style="text-align: center">
+              <a class="button" href="#">Read More</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-gift"></i>
+          <h5>Sourvenir</h5>
+          <div class="pra">
+            <p>
+              In addition, if you are a collector of meaningful little gift, you
+              can visit our souvenir stall for only 4-5 dollars.
+            </p>
+            <p>
+              Here, you will find antiques crafted from simple to meticulous,
+              lovely necklaces with bold colors of ancient egypt...
+            </p>
+            <p style="text-align: center">
+              <a class="button" href="#">Read More</a>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-    <script type="module" src="/src/main.ts"></script>
+    </section>
+
+    <section>
+      <div class="contact-us">
+        <p class="introduce">Let Us Get You A Wonderful Experience</p>
+        <div class="contact-us-card">
+          <p><i class="fa-solid fa-phone"></i> 0123 845 485</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> booking@virtualmuseum.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h2>mysterious Museum</h2>
+      <p>Your happiness is my pleasure</p>
+      <p class="end">
+        <i class="fa-solid fa-copyright"></i> CopyRight By Ho Xuan Hieu ft. Le
+        Kien Trung
+      </p>
+    </footer>
+
+    <!-- <script type="module" src="src/welcome.ts"></script> -->
+    
   </body>
 </html>

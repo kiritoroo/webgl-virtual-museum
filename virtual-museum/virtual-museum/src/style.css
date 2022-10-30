@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: default;
+}
+
+*:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #0b0b0b;
+  background: #f7f7f7;
+}
+
+::selection {
+  cursor: pointer;
+  color: #0b0b0b;
+  background: #f7f7f7;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a,
+.cursor-pointer,
+a *,
+.cursor-pointer * {
+  cursor: pointer;
+}
+
+body {
+  background: #F7F7F7;
+  width: 100vw;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  background: #f7f7f7;
+  border-radius: 100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: 150ms ease;
+  transition-property: border, opacity, background-color, transform,
+    mix-blend-mode;
+}
+.cursor--hidden {
+  opacity: 0;
+}
+.cursor--clicked {
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: #fefefe;
+}
+.cursor--link-hovered {
+  transform: translate(-50%, -50%) scale(3);
+  background-color: transparent;
+  border: 1px solid #f7f7f7;
+}
+
+.loading {
+  mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 90%
+  );
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 90%
+  );
+  mask-size: 200%;
+  -webkit-mask-size: 200%;
+  animation: shine 1s linear infinite;
+}
+
+.wave-effect {
+  mask-image: linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.3) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.2) 90%
+  );
+  -webkit-mask-image: linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.3) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.3) 90%
+  );
+  mask-size: 200%;
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px #111827;
+  -webkit-text-fill-color: transparent;
+}
+.text-stroke-sm {
+  -webkit-text-stroke: 1px #111827;
+  -webkit-text-fill-color: transparent;
+}
+
+.fx-underline {
+  position: relative;
+}
+.fx-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 97%;
+  height: 2px;
+  background-color: #111827;
+  transform: scaleX(0%);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.fx-underline::before {
+  transform-origin: 100% 0;
+}
+.fx-underline:hover::before,
+.Active::before {
+  transform: scaleX(100%);
+  transform-origin: 0 0;
+}

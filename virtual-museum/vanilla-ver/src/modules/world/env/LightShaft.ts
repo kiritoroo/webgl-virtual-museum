@@ -34,7 +34,7 @@ class LightShaft {
     const geometry: $.PlaneGeometry = new $.PlaneGeometry(0.5, 3);
     const texture = this.resources.items['t_lightShaft'];
     const material: $.MeshBasicMaterial = new $.MeshBasicMaterial({
-      transparent: true,
+      transparent: false,
       blending: $.AdditiveBlending,
       depthWrite: false,
       alphaMap: texture,
@@ -90,11 +90,22 @@ class LightShaft {
   }
 
   private configInstand(): void {
-    const spacing = 0.4 / 2;
+    const spacing = 0.2 / 2;
     const positions = Array.from({ length: this.numberOfShafts }, (value, index) => ({
       position: [(index * spacing) % 5, Math.random() * 2, Math.random() * 1],
       scale: [1.5 + Math.random(), 2 + Math.random() * 1.25, 1]
     }))
+
+    // let positions = [];
+    // for (let i = 0; i < this.numberOfShafts; i++) {
+    //   positions.push({ 
+    //     position: [(Math.random() * i * spacing) % 5, Math.random() * 2, Math.random() * 1],
+    //     scale: [1.5 + Math.random(), 2 + Math.random() * 1.25, 1]
+    //   })
+    // }
+
+
+    // console.log(positions);
 
     const dummy = new $.Object3D();
     for (let i = 0; i < this.numberOfShafts; i ++) {
@@ -122,7 +133,6 @@ class LightShaft {
 
   public update(): void {
     // this.cusUniforms.uTime.value = this.time.delta;
-
     if (!this.isTrans) {
       this.isTrans = true;
       gsap.to(this.cusUniforms.uTime, {

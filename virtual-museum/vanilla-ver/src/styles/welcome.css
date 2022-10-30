@@ -1,0 +1,281 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.header{
+  height: 95vh;
+  width: 100%;
+  background-image: url(../../public/static/images/header.jpg);
+  background-size:  contain;
+  background-position: center;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 45px;
+  padding-left: 8%;
+  padding-right: 8%;
+  background-size: cover;
+}
+
+.logo{
+  color: white;
+  font-size: 35px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+span{
+  color: gold;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+nav ul li a:hover {
+  color: brown;
+  transition: .4s;
+}
+
+.btn{
+  background-color: darkorange;
+  color: white;
+  text-decoration: none;
+  border: 2px;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: .4s;
+}
+
+.btnSubs:hover{
+  transform: scale(1.5);
+  transition: .6s;
+}
+
+.content{
+  position: absolute;
+  top:50%;
+  left: 8%;
+  transform: translateY(-50%);
+  margin: auto;
+  padding: 10px 25px;
+}
+
+h1{
+  color:white;
+  margin: 20px 0px 20px;
+  font-size: 60px;
+}
+
+h3{
+  color: white;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+
+.btnTry{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 45px;
+  padding-left: 8%;
+  padding-right: 8%;
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn:hover{
+  transform: scale(2.5);
+  transition: 0.8s;
+}
+
+.about{
+  width: 100%;
+  padding: 100px 0px;
+  background-color: #191919;
+}
+
+.about img{
+  height: auto;
+  width: 430px;
+}
+
+.about-text{
+  width: 550px;
+
+}
+
+.about-main{
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.about-text h2 {
+  color: lightgoldenrodyellow;
+  font-size: 75px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.about-text h4{
+  color: white;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.about-text p {  
+  font-family: Arial, Helvetica, sans-serif;
+  color: peachpuff;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+
+.service{
+  background-color: #101010;
+  width: 100%;
+  padding: 100px 0px;
+}
+
+.title h2 {
+  color: lightgoldenrodyellow;
+  font-size: 75px;
+  width: 1130px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.card {
+  height: 400px;
+  width: 335px;
+  padding: 20px 35px;
+  background-color: #191919;
+  border-radius: 20px;
+  margin: 15px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card i {
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  margin: 25px 0px;
+  color: gold;
+}
+
+.card h5 {
+  color: white;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.pra p {
+  color: peachpuff;
+  font-size: 16px;
+  line-height: 27px;
+  margin-bottom: 25px;
+}
+
+.card .button{
+  background-color: darkorange;
+  color: white;
+  text-decoration: none;
+  border: 2px;
+  font-weight: bold;
+  padding: 9px 30px;
+  border-radius: 30px;
+  transition: .4s;
+}
+
+.contact-us{
+  width: 100%;
+  padding: 100px 0px;
+  background-color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact-us .introduce{
+  color:lightgoldenrodyellow;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.contact-us p{
+  color: peachpuff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+
+}
+
+.contact-us-card {
+  height: 200px;
+  width: 800px;
+  padding: 20px 35px;
+  background-color: #101010;
+  border-radius: 20px;
+  margin: 15px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  padding: 100px 0px;
+  background-color: #101010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer h2 {
+  color:lightgoldenrodyellow;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+footer p{
+  color: peachpuff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}

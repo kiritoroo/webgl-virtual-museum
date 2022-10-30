@@ -64,7 +64,7 @@ gltfLoader.setDRACOLoader(dracoLoader);
 
 gltfLoader.load(
 	// resource URL
-	"models/vr_round_art_gallery.glb",
+	"models/gallery_space.glb",
 	// onLoad callback
 	// Here the loaded data is assumed to be an object
 	function ( obj: GLTF ) {
