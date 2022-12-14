@@ -11,9 +11,9 @@ const W = innerWidth
 const H = innerHeight
 const ASPECT = W/H
 const scene = new THREE.Scene()
-const container = document.getElementById("stage")
+const canvas = document.getElementById("stage")
 const camera = new THREE.PerspectiveCamera(75,ASPECT,0.1,100)
-const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: container})
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas})
 const geometry = new THREE.BoxGeometry(5,5,5)
 const material = new THREE.MeshStandardMaterial({
   wireframe: false,
@@ -24,9 +24,7 @@ const ambientLight = new THREE.AmbientLight(0xffffff)
 const directionLight = new THREE.DirectionalLight(0xfffff,1 )
 
 
-
-
-scene.background = new THREE.Color("black")
+scene.background = new THREE.Color("white")
 camera.position.z = 10
 renderer.setSize(W,H)
 
@@ -37,8 +35,8 @@ const animate = () => {
   renderer.render(scene,camera)
   window.requestAnimationFrame(animate)
 
-  mesh.rotation.z += 0.01
-  mesh.rotation.y += 0.01
+  mesh.rotation.z += 0.005
+  mesh.rotation.y += 0.005
 }
 
 animate()

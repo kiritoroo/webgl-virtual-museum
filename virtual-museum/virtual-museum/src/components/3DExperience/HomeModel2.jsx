@@ -9,7 +9,7 @@ export function Model(props) {
   const { nodes, materials } = useGLTF("model/rhetorician_3.glb");
 
   const upAndDown = new TWEEN.Tween({ y: -2.8, rot: 0 })
-    .to({ y: -3, rot: 1 }, 3000)
+    .to({ y: -3, rot: 1 }, 2000)
     .easing(TWEEN.Easing.Sinusoidal.InOut)
     .repeat(Infinity)
     .yoyo(true);
